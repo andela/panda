@@ -1,2 +1,7 @@
+fail_on_violations: true
+
 javascript:
-  config_file: .eslintrc.json
+  enabled: false
+eslint:
+  enabled: true
+  config_file: .eslintrc

@@ -19,7 +19,7 @@ const config = {
 
     // Our application
     mainPath,
-  ],
+  ]
   output: {
 
     // We need to give Webpack a path. It does not actually need it,

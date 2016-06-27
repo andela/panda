@@ -1,9 +1,6 @@
 const webPack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./../webpack.config.js');
-const path = require('path');
-const fs = require('fs');
-const mainPath = path.resolve(__dirname, '..', 'app', 'main.js');
 
 module.exports = () => {
   // First we fire up Webpack an pass in the configuration we
@@ -38,8 +35,8 @@ module.exports = () => {
     quiet: false,
     noInfo: true,
     stats: {
-      colors: true,
-    },
+      colors: true
+    }
   });
 
   // We fire up the development server and give notice in the terminal

@@ -23,7 +23,7 @@ if (!isProduction) {
   // to webpack-dev-server
   app.all('/build/*', (req, res) => {
     proxy.web(req, res, {
-      target: 'http://localhost:8000',
+      target: 'http://localhost:8000'
     });
   });
 }
@@ -32,10 +32,10 @@ if (!isProduction) {
 // server will crash. An example of this is connecting to the
 // server when webpack is bundling
 proxy.on('error', (e) => {
-  return ('Could not connect to proxy, please try again...', e);
+  console.log('Could not connect to proxy, please try again...', e);
 });
 
 // Listens for connections and runs the server
 app.listen(port, () => {
-  return ('Server running on port ', port);
+  console.log('Server running on port ', port);
 });

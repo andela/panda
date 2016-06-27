@@ -10,18 +10,18 @@ const config = {
   entry: mainPath,
   output: {
     path: buildPath,
-    filename: 'bundle.js',
+    filename: 'bundle.js'
   },
   module: {
     loaders: [{
       test: /\.js$/,
       loader: 'babel-core',
-      exclude: [nodeModulesPath],
+      exclude: [nodeModulesPath]
     }, {
       test: /\.css$/,
-      loader: 'style!css',
-    }],
-  },
+      loader: 'style!css'
+    }]
+  }
 };
 
 module.exports = config;
