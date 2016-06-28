@@ -1,43 +1,53 @@
-/* eslint-disable no-console */
-
-const express = require('express');
+/* eslint no-console: 0 */
 const path = require('path');
-const httpProxy = require('http-proxy');
+const express = require('express');
+const webpack = require('webpack');
 
-const proxy = httpProxy.createProxyServer();
+// It serves the files emitted from webpack over a connect server
+const webpackMiddleware = require('webpack-dev-middleware');
+
+/* This connects to the server to receive notifications when the bundle rebuilds
+   and then updates client bundle accordingly.
+*/
+const webpackHotMiddleware = require('webpack-hot-middleware');
+const config = require('./webpack.config.js');
+
+const isDeveloping = process.env.NODE_ENV !== 'production';
+const port = isDeveloping ? 3000 : process.env.PORT;
 const app = express();
 
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 8080;
-const publicPath = path.resolve(__dirname, 'public');
+if (isDeveloping) {
+  const compiler = webpack(config);
+  const middleware = webpackMiddleware(compiler, {
+    publicPath: config.output.publicPath,
+    contentBase: 'src',
+    stats: {
+      colors: true,
+      hash: false,
+      timings: true,
+      chunks: false,
+      chunkModules: false,
+      modules: false
+    }
+  });
 
-// We point to our static assets
-app.use(express.static(publicPath));
-
-// We only want to run the workflow when not in production
-if (!isProduction) {
-  // We require the bundler inside the if block because
-  // it is only needed in a development environment.
-  const bundle = require('./server/bundle.js'); // eslint-disable-line global-require
-  bundle();
-
-  // Any requests to localhost:8080/build is proxied
-  // to webpack-dev-server
-  app.all('/build/*', (req, res) => {
-    proxy.web(req, res, {
-      target: 'http://localhost:8000'
-    });
+  app.use(middleware);
+  app.use(webpackHotMiddleware(compiler));
+  app.get('*', function response(req, res) {
+    res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
+    res.end();
+  });
+} else {
+  // applies if running on production mode
+  app.use(express.static(__dirname + '/dist'));
+  app.get('*', function response(req, res) {
+    res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }
 
-// It is important to catch any errors from the proxy or the
-// server will crash. An example of this is connecting to the
-// server when webpack is bundling
-proxy.on('error', (e) => {
-  console.log('Could not connect to proxy, please try again...', e);
-});
-
-// Listens for connections and runs the server
-app.listen(port, () => {
-  console.log('Server running on port ', port);
+app.listen(port, '0.0.0.0', function onStart(err) {
+  if (err) {
+    console.log(err);
+  }
+  console.info('==> 🌎 Listening on port %s. Open up http://0.0.0.0:%s/ in your browser.', port, port);
 });
