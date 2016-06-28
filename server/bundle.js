@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-unreachable */
 const webPack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const webpackConfig = require('./../webpack.config.js');

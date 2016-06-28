@@ -18,8 +18,8 @@ const config = {
     'webpack-dev-server/client?http://localhost:8000',
 
     // Our application
-    mainPath,
-  ]
+    mainPath
+  ],
   output: {
 
     // We need to give Webpack a path. It does not actually need it,
@@ -33,7 +33,7 @@ const config = {
     // // writes to disk: ./build/bundle.js
     // Everything related to Webpack should go through a build path,
     // localhost:3000/build. That makes proxying easier to handle
-    publicPath: '/build/',
+    publicPath: '/build/'
   },
   module: {
 
@@ -44,21 +44,21 @@ const config = {
       {
         test: /\.js$/,
         loader: 'babel-core',
-        exclude: [nodeModulesPath],
+        exclude: [nodeModulesPath]
       },
 
       // style-loader and css-loader
       {
         test: /\.css$/,
-        loader: 'style!css',
-      },
+        loader: 'style!css'
+      }
 
-    ],
+    ]
   },
 
   // We have to manually add the Hot Replacement plugin when running
   // from Node
-  plugins: [new Webpack.HotModuleReplacementPlugin()],
+  plugins: [new Webpack.HotModuleReplacementPlugin()]
 };
 
 module.exports = config;
