@@ -6,7 +6,3 @@ test:
   general:
     artifacts:
       - "coverage"
-
-notify:
-  webhooks:
-    - url: https://coveralls.io/webhook?repo_token=ySeklGlYQwfDZVlYUQRtRBHPH4Z261yHc
