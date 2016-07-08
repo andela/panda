@@ -8,9 +8,3 @@ dependencies:
 test:
   override:
     - google-chrome --version
-  post:
-    - bundle exec rake coveralls:push
-      ## Don't have CircleCI create coverage in an unexpected place, as coveralls wouldn't be able to find it.
-general:
-  artifacts:
-    - "coverage"
