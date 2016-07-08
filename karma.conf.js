@@ -44,6 +44,20 @@ module.exports = function(config) {
       'test/**/[sS]pec.js': ['babel', 'coverage']
     },
 
+    babelPreprocessor: {
+     options: {
+       presets: ['es2015'],
+       sourceMap: 'inline',
+       'plugins': ['transform-es2015-modules-umd']
+     },
+     filename: function (file) {
+       return file.originalPath.replace(/\.js$/, '.es5.js');
+     },
+     sourceFileName: function (file) {
+       return file.originalPath;
+     }
+   },
+
     webpack:   webpackConfig,
             // karma watches the test entry points
             // (you don't need to specify the entry option)
@@ -86,7 +100,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Chrome', 'PhantomJS'],
 
 
     // Continuous Integration mode
