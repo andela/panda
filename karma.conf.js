@@ -2,7 +2,8 @@
 // Generated on Fri Jul 08 2016 14:11:24 GMT+0300 (EAT)
 
 // reference webpack
-var webpackConfig = require('./webpack.config.js');
+const webpackConfig = require('./webpack.config.js');
+const path = require('path');
 
 // remove the entry point
 webpackConfig.entry = {};
@@ -21,10 +22,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/*[sS]pec.js',
-      'test/**/*[sS]pec.js'
+      path.join(__dirname, 'app/main.js'),
+      'front_endTest/*[sS]pec.js',
+      'front_endTest/**/*[sS]pec.js'
     ],
 
+    coverageReporter: {
+      type: 'lcov',
+      dir: 'coverage/'
+    },
 
     // list of files to exclude
     exclude: [
@@ -34,8 +40,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'test/*[sS]pec.js': ['webpack', 'sourcemap'],
-      'test/**/[sS]pec.js': ['webpack', 'sourcemap']
+      'app/main.js': ['webpack'],
+      'test/**/[sS]pec.js': ['babel', 'coverage']
     },
 
     webpack: {
@@ -44,6 +50,8 @@ module.exports = function(config) {
             // webpack watches dependencies
 
             // webpack configuration
+            webpackConfig
+
     },
 
     webpackMiddleware: {
@@ -56,7 +64,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'coverage'],
+    reporters: ['progress', 'coverage', 'coveralls'],
 
 
     // web server port
@@ -78,7 +86,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'Firefox', 'PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
@@ -88,5 +96,6 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
+
   });
 };
