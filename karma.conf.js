@@ -44,15 +44,15 @@ module.exports = function(config) {
       'test/**/[sS]pec.js': ['babel', 'coverage']
     },
 
-    webpack: {
+    webpack:   webpackConfig,
             // karma watches the test entry points
             // (you don't need to specify the entry option)
             // webpack watches dependencies
 
             // webpack configuration
-            webpackConfig
 
-    },
+
+
 
     webpackMiddleware: {
             // webpack-dev-middleware configuration
