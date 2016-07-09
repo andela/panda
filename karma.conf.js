@@ -41,22 +41,8 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'app/main.js': ['webpack'],
-      'test/**/[sS]pec.js': ['babel', 'coverage']
+      'front_endTest/**/[sS]pec.js': ['babel', 'sourcemap', 'coverage']
     },
-
-    babelPreprocessor: {
-     options: {
-       presets: ['es2015'],
-       sourceMap: 'inline',
-       'plugins': ['transform-es2015-modules-umd']
-     },
-     filename: function (file) {
-       return file.originalPath.replace(/\.js$/, '.es5.js');
-     },
-     sourceFileName: function (file) {
-       return file.originalPath;
-     }
-   },
 
     webpack:   webpackConfig,
             // karma watches the test entry points
@@ -100,7 +86,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome'],
+    browsers: ['Firefox'],
 
 
     // Continuous Integration mode
