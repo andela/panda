@@ -25,8 +25,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       path.join(__dirname, 'app/main.js'),
-      'front_endTest/*[sS]pec.js',
-      'front_endTest/**/*[sS]pec.js'
+      'test/client/**/*[sS]pec.js'
     ],
 
     coverageReporter: {
@@ -42,8 +41,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/main.js': ['webpack'],
-      'front_endTest/**/[sS]pec.js': ['webpack', 'sourcemap', 'coverage']
+      'app/main.js': ['webpack', 'coverage'],
+      'test/client/**/*[sS]pec.js': ['webpack', 'sourcemap']
     },
 
     webpack:   webpackConfig,
