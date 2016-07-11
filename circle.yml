@@ -1,4 +1,0 @@
-test:
-  override:
-    - npm test:
-      timeout: 720
