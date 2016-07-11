@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "node server",
-    "test": "karma start karma.conf.js"
+    "test": "karma start karma.conf.js "
   },
   "dependencies": {
     "express": "4.14",
@@ -43,7 +43,7 @@
     "jasmine": "^2.4.1",
     "karma": "^1.1.1",
     "karma-babel-preprocessor": "^6.0.1",
-    "karma-chrome-launcher": "^1.0.1",
+    "karma-cli": "^1.0.1",
     "karma-coverage": "^1.1.0",
     "karma-coveralls": "^1.1.2",
     "karma-firefox-launcher": "^1.0.0",

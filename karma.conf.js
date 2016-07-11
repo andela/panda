@@ -4,6 +4,8 @@
 // reference webpack
 const webpackConfig = require('./webpack.config.js');
 const path = require('path');
+webpackConfig.devtool = 'inline-source-map';
+
 
 // remove the entry point
 webpackConfig.entry = {};
@@ -41,7 +43,7 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'app/main.js': ['webpack'],
-      'front_endTest/**/[sS]pec.js': ['babel', 'sourcemap', 'coverage']
+      'front_endTest/**/[sS]pec.js': ['webpack', 'sourcemap', 'coverage']
     },
 
     webpack:   webpackConfig,
