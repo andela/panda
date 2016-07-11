@@ -1,4 +1,3 @@
 test:
   override:
-    - cabal test:
-        timeout: 720
+    timeout: 720
