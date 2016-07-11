@@ -1,7 +1,7 @@
 (function() {
   'use strict';
-  var Sequelize = require('sequelize');
-  var config = require('./db_config');
+  const Sequelize = require('sequelize');
+  const config = require('./db_config');
   var connection;
 
   if (process.env.DATABASE_URL) {
@@ -16,11 +16,6 @@
       });
   }
   connection
-    .sync({ force: true })
-    .then(function(err) {
-      console.log('It worked!');
-    }, function(err) {
-      console.log('An error occurred while creating the table:', err);
-    });
+    .sync({ force: true });
 
 })();
