@@ -41,8 +41,8 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'app/main.js': ['webpack', 'coverage'],
-      'test/client/**/*[sS]pec.js': ['webpack', 'sourcemap']
+      'app/main.js': ['webpack'],
+      'test/client/**/[sS]pec.js': ['webpack', 'sourcemap', 'coverage']
     },
 
     webpack:   webpackConfig,
