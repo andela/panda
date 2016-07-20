@@ -1,0 +1,6 @@
+general:
+  branches:
+    ignore:
+      - feature/database
+      - feature/test-coverage
+      - ft-#126028027-CircleCI-Deployment-config
