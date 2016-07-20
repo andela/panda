@@ -4,3 +4,14 @@ general:
       - feature/database
       - feature/test-coverage
       - ft-#126028027-CircleCI-Deployment-config
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: panda-prod
+
+  staging:
+    branch: staging
+    heroku:
+      appname: andela-panda-staging
