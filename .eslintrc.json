@@ -34,7 +34,8 @@
       "react/require-extension": 0,
       "react/self-closing-comp": 1,
       "react/sort-comp": 1,
-      "react/wrap-multilines": 1
+      "react/wrap-multilines": 1,
+      "no-console-log/no-console-log": 1
     },
     "env": {
         "es6": true,
@@ -44,5 +45,5 @@
     },
     "extends": "eslint:recommended",
     "parser": "babel-eslint",
-    "plugins": ["react"]
+    "plugins": ["react", "no-console-log"]
 }

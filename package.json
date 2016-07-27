@@ -8,12 +8,18 @@
     "test": "karma start karma.conf.js "
   },
   "dependencies": {
-    "express": "4.14",
-    "webpack": "1.13.1",
-    "babel-loader": "^6.2.4",
-    "webpack-dev-server": "1.14.1",
     "babel-core": "6.1.19",
-    "react": "^0.14.3"
+    "babel-loader": "^6.2.4",
+    "dotenv": "^2.0.0",
+    "eslint-plugin-no-console-log": "^2.0.0",
+    "express": "4.14",
+    "pg": "^6.0.1",
+    "pg-hstore": "^2.3.2",
+    "react": "^0.14.3",
+    "sequelize": "^3.23.4",
+    "sequelize-cli": "^2.4.0",
+    "webpack": "1.13.1",
+    "webpack-dev-server": "1.14.1"
   },
   "repository": {
     "type": "git",
