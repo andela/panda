@@ -26,7 +26,9 @@
     "sequelize-cli": "^2.4.0",
     "style-loader": "^0.13.1",
     "webpack": "1.13.1",
-    "webpack-dev-server": "1.14.1"
+    "webpack-dev-server": "1.14.1",
+
+    "webpack-hot-middleware": "^2.12.2"
   },
   "repository": {
     "type": "git",
@@ -65,7 +67,6 @@
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
-    "webpack": "^1.13.1",
-    "webpack-hot-middleware": "^2.12.2"
+    "webpack": "^1.13.1"
   }
 }
