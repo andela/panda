@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server",
     "test": "karma start karma.conf.js "
   },
   "dependencies": {
