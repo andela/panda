@@ -1,6 +1,7 @@
 const path = require('path'); // webpack doesn't use relative file
 const webpack = require('webpack'); // import webpack
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // generates html page
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   /* maps to compiled source code per module so that
@@ -19,6 +20,9 @@ module.exports = {
   },
 
   plugins: [
+    new ExtractTextPlugin('style.css', {
+        allChunks: true
+    }),
     new HtmlWebpackPlugin({
       template: 'app/index.tpl.html', // load a custom template
       inject: 'body', //inject all scripts into the body
@@ -52,6 +56,9 @@ module.exports = {
     }, {
       test: /\.css$/,
       loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
-    }]
+    },{
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css!sass')
+      }]
   }
 };
