@@ -1,4 +1,94 @@
-body {
-  background: #000;
+* {
+  margin: 0;
+  padding: 0; }
+
+.banner {
+  background: blue;
   width: 100%;
-  height: 100vh; }
+  height: 80vh;
+  background-image: url(/a57dd36f548e017e8820f0028f6b3c29.jpg);
+  background-size: cover; }
+
+.color {
+  height: 80vh;
+  background-color: rgba(0, 140, 255, 0.5); }
+
+nav {
+  width: 100%;
+  height: 8vh;
+  color: #fff;
+  text-transform: uppercase;
+  clear: both; }
+
+.logo {
+  width: 20%;
+  float: left;
+  padding: 1% 3%;
+  font-size: 1.2em; }
+
+ul {
+  float: right;
+  width: 36%;
+  margin: 1.5% 0%; }
+
+li {
+  width: 17%;
+  float: left;
+  list-style: none; }
+
+a {
+  font-size: 1em; }
+
+.signup {
+  background: #d71a94;
+  width: 20%;
+  padding: 1.5% .8%;
+  text-align: center;
+  border-radius: .2em;
+  margin-left: 5%;
+  margin-top: -2%; }
+
+h1 {
+  text-align: center;
+  margin: 9% 0% .5%;
+  color: #fff; }
+
+p {
+  text-align: center;
+  font-size: 1.3em;
+  color: #fff; }
+
+.action {
+  text-align: center;
+  margin: 1%;
+  background: #d71a94;
+  width: 11%;
+  /* height: 9vh; */
+  padding: 1%;
+  margin: 1% auto;
+  color: #fff;
+  font-size: 1.4em;
+  border-radius: .5em; }
+
+.laptop {
+  width: 44%;
+  height: 50vh;
+  margin: auto;
+  border-radius: 2em; }
+
+.laptop span {
+  background-image: url(/8f2a5e0b05676896ceb6eaf5211a50d8.png);
+  width: 100%; }
+
+section {
+  width: 100%; }
+
+aside {
+  width: 50%;
+  height: 30vh;
+  float: left; }
+
+.flat {
+  background-imgae: url(/4cbd6f4f2499aa0a3816fd25d917d8f5.png);
+  width: 100%;
+  height: 100%; }
