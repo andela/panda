@@ -61,5 +61,8 @@
     "karma-webpack": "^1.7.0",
     "protractor": "^4.0.2",
     "webpack-hot-middleware": "^2.11.0"
+  },
+  "engines": {
+    "node": "6.1.0"
   }
 }
