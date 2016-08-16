@@ -1,108 +1,224 @@
-*{
-  margin: 0;
-  padding: 0;
-}
-body{}
-.container{}
-.banner{
-  background: blue;
-  width:100%;
-  height: 80vh;
-  background-image:url("images/back.jpg");
-  background-size: cover;
-}
-.color{
-  height: 80vh;
-  background-color: rgba(0,140,255,0.5)
-}
-nav{
-  width:100%;
-  height:8vh;
-  color: #fff;
-  text-transform:uppercase;
-  clear:both;
-}
-.logo{
-  width:20%;
-  float:left;
-  padding:1% 3%;
-  font-size:1.2em;
-}
-ul{
-  float: right;
-  width: 36%;
-  margin: 1.5% 0%;
-}
-li{
-  width: 17%;
-  float: left;
-  list-style: none;
-}
-a{
-  font-size:1em;
-}
-.signup{
-  background: #d71a94;
-      width: 20%;
-      padding: 1.5% .8%;
-      text-align: center;
-      border-radius: .2em;
-      margin-left: 5%;
-      margin-top: -2%;
+* {
+	margin: 0;
+	padding: 0;
 }
 
-h1{
-  text-align: center;
-  margin: 9% 0% .5%;
-  color: #fff;
-}
-p{
-  text-align: center;
-    font-size: 1.3em;
-    color: #fff;
+body {
+	font-family: 'Lato', sans-serif;
 }
 
-.action{
-    text-align: center;
-    margin: 1%;
-    background: #d71a94;
-    width: 11%;
-    /* height: 9vh; */
-    padding: 1%;
-    margin: 1% auto;
-    color: #fff;
-    font-size: 1.4em;
-    border-radius: .5em;
-  }
-.laptop{
-  width: 44%;
-  height: 50vh;
-  margin: auto;
-  border-radius: 2em;
-  }
-  .laptop img{
-   width: 100%;
-  }
-  section{
-    width:100%;
-  }
-  aside{
-    width:50%;
-    height:30vh;
-    float:left;
-  }
-aside img{
-    width:90%;
-    margin-left: 7%;
-  }
-
-h4{
-      color: #6d6969;
+h4 {
+	font-family: 'Bree Serif', serif;
+	color: #6d6969;
+	font-size: 2em;
+	font-weight: normal;
+	margin-left: 18%;
+	margin-top: 23%;
 }
-aside p{}
-.text{
-  background:#000;
-  width:60%;
-  margin:auto;
-  height:30vh;
+
+.action {
+	font-family: 'Bree Serif', serif;
+	text-align: center;
+	margin: 1%;
+	background: #d71a94;
+	width: 11%;
+	padding: 1%;
+	margin: 1% auto;
+	color: #fff;
+	font-size: 1.4em;
+	border-radius: .5em;
+}
+
+.banner {
+	background: blue;
+	width: 100%;
+	height: 80vh;
+	background-image: url("images/back.jpg");
+	background-size: cover;
+	.color {
+	height: 80vh;
+	background-color: rgba(0,140,255,0.5);
+	nav {
+	width: 100%;
+	height: 8vh;
+	color: #fff;
+	text-transform: uppercase;
+	clear: both;
+	.logo {
+	width: 20%;
+	float: left;
+	padding: 1% 3%;
+	font-size: 1.2em;
+}
+
+ul {
+	float: right;
+	width: 36%;
+	margin: 1.5% 0%;
+	li {
+	width: 17%;
+	float: left;
+	list-style: none;
+	a {
+	font-size: 1em;
+}
+}
+
+.signup {
+	background: #d71a94;
+	width: 20%;
+	padding: 1.5% .8%;
+	text-align: center;
+	border-radius: .2em;
+	margin-left: 5%;
+	margin-top: -2%;
+	font-size: 1em;
+}
+}
+}
+
+h1 {
+	font-family: 'Bree Serif', serif;
+	text-align: center;
+	margin: 9% 0% .5%;
+	color: #fff;
+}
+
+p {
+	text-align: center;
+	font-size: 1.3em;
+	color: #fff;
+}
+
+.laptop {
+	width: 44%;
+	height: 50vh;
+	margin: auto;
+	border-radius: 2em;
+	img {
+		width: 100%;
+}
+}
+}
+}
+
+section {
+	width: 100%;
+	height: 70vh;
+}
+
+aside {
+	width: 50%;
+	height: 30vh;
+	float: left;
+	img {
+		width: 75%;
+	margin-left: 10%;
+	margin-top: 15%;
+}
+
+p {
+	color: #6d6969;
+	margin-left: 18%;
+	text-align: left;
+	margin-bottom: 8%;
+	font-style: italic;
+}
+}
+
+.text {
+	width: 90%;
+	margin: 2% 0% 0% 18%;
+	height: 30vh;
+	article {
+		width: 30%;
+	float: left;
+	margin-right: 5%;
+	h4 {
+			margin: 0;
+	text-transform: uppercase;
+	font-size: 1.2em;
+	margin-bottom: 4%;
+}
+
+p {
+	margin: 0;
+	font-size: 1.2em;
+	font-style: normal;
+}
+	}
+
+.icon {
+	width: 20%;
+	margin-bottom: 10%;
+}
+
+}
+
+.register {
+	background: #f7f7f7;
+	h4 {
+		margin-top: 16%;
+	margin-left: 10%;
+}
+
+p {
+	margin-left: 10%;
+}
+
+aside {
+	img {
+			margin-left: 17%;
+	width: 60%;
+}
+	}
+
+.text {
+	margin: 2% 0% 0% 10%;
+	article {
+  		background: white;
+	padding: 5%;
+}
+	}
+}
+
+.calltoaction {
+	width: 100%;
+	height: 45vh;
+	.rocks {
+	background-image: url('images/rocks.png');
+	width: 100%;
+	height: inherit;
+	background-size: cover;
+	margin: 0;
+	p {
+		padding: 10% 0% 0% 20%;
+	font-size: 1.8em;
+	width: 60%;
+	color: #fff;
+	text-align: center;
+}
+}
+}
+
+footer {
+	width: 100%;
+	color: #f7f7f7;
+	height: 8vh;
+	p {
+		font-size: 1em;
+	color: #666666;
+	text-align: center;
+	width: 100%;
+	margin-top: .5%;
+}
+.social-icons {
+	width: 8%;
+	height: 5vh;
+	margin: auto;
+	img {
+		width: 20%;
+	margin: 12% 2% 0% 6%;
+  }
+  }
 }
