@@ -13,7 +13,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
+const port = process.env.PORT || 3000;
 const app = express();
 
 if (isDeveloping) {
@@ -45,7 +45,7 @@ if (isDeveloping) {
   });
 }
 
-app.listen(port, '0.0.0.0', function onStart(err) {
+app.listen(port, function onStart(err) {
   if (err) {
     console.log(err);
   }
