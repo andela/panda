@@ -19,6 +19,7 @@
     "dotenv": "^2.0.0",
     "eslint-plugin-no-console-log": "^2.0.0",
     "express": "4.14",
+    "html-webpack-plugin": "^2.22.0",
     "pg": "^6.0.1",
     "pg-hstore": "^2.3.2",
     "react": "^15.2.1",
