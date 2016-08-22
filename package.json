@@ -4,15 +4,9 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-<<<<<<< HEAD
-    "start": "node server",
+    "start": "node server.js",
     "test": "karma start karma.conf.js ",
     "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
-
-=======
-    "start": "node server.js",
-    "test": "karma start karma.conf.js "
->>>>>>> 3ec239d42146cdbff8febb8360864d103971286f
   },
   "dependencies": {
     "babel": "^6.5.2",
