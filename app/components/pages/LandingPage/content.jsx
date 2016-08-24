@@ -3,7 +3,7 @@ import styles from '../../../style.css';
 import flat from 'file!../../../images/flat.png';
 import pie_chart from 'file!../../../images/pie-chart.png';
 import user from 'file!../../../images/user.png';
-import graph from 'file!../../../images/graph.png';
+import seo from 'file!../../../images/seo.png';
 import rocks from 'file!../../../images/rocks.png';
 import facebook from 'file!../../../images/facebook.png';
 import google from 'file!../../../images/google.png';
@@ -39,7 +39,7 @@ export default class MyComponent extends React.Component {
         </section>
 
         <section className={styles.register}>
-          <aside> <img src={graph}/></aside>
+          <aside> <img src={seo}/></aside>
           <aside>
             <h4>What we do?</h4>
             <p>Why us what we offer us what we</p>
@@ -64,10 +64,8 @@ export default class MyComponent extends React.Component {
 
         <section className={styles.calltoaction}>
           <div className={styles.rocks} style={styleElement}>
-          <div className={styles.color_}>
             <p>Dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
             <div className={styles.action_}> GET STARTED </div>
-          </div>
           </div>
         </section>
 

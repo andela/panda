@@ -1,6 +1,7 @@
 * {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: 'Lato';}
 
 .banner {
   width: 100%;
@@ -18,7 +19,9 @@ nav {
   height: 8vh;
   color: #fff;
   text-transform: uppercase;
-  clear: both; }
+  position: absolute;
+  margin-top: 1%;
+}
 
 .logo {
   width: 20%;
@@ -28,7 +31,7 @@ nav {
 
 ul {
   float: right;
-  width: 45%;
+  width: 40%;
   margin: 1.5% 0%; }
 
 li {
@@ -37,7 +40,10 @@ li {
   list-style: none; }
 
 a {
-  font-size: 1em; }
+  font-size: 1em;
+  color: #fff;
+  text-decoration: none;
+  font-family: 'Bree Serif';}
 
 .signup {
   background: #d71a94;
@@ -46,12 +52,15 @@ a {
   text-align: center;
   border-radius: .2em;
   margin-left: 5%;
-  margin-top: -2%; }
+  margin-top: -2%;
+  font-family: 'Bree Serif';}
 
 h1 {
   text-align: center;
-  margin: 7% 0% .5%;
-  color: #fff; }
+  margin: 0% 0% .5%;
+  color: #fff;
+  padding-top: 12%;
+  font-family: 'Bree Serif';}
 
 p {
   text-align: center;
@@ -80,7 +89,7 @@ p {
 
 section {
   width: 100%;
-  height: 60vh; }
+  height: 65vh;}
 
 aside {
   width: 50%;
@@ -88,21 +97,23 @@ aside {
   float: left; }
 
 aside>img {
-  width: 90%;
-  margin-left: 7%; }
+  width: 80%;
+  margin-top: 10%;
+  margin-left: 14%;}
 
 h4 {
   color: #6d6969;
   font-size: 2em;
   font-weight: normal;
-  margin-left: 6%;
-  margin-top: 10%; }
+  margin-left: 10%;
+  margin-top: 15%; }
 
 aside p {
   color: #6d6969;
-  margin-left: 6%;
+  margin-left: 10%;
   text-align: left;
-  margin-bottom: 10%; }
+  margin-bottom: 10%;
+  font-style:italic; }
 
 .text_ {
   width: 90%;
@@ -112,7 +123,7 @@ aside p {
 .text_ article {
   width: 30%;
   float: left;
-  margin-right: 5%; }
+  margin-left: 5%;}
 
 .text_ article h4, .text_ article p {
   margin: 0; }
@@ -124,7 +135,7 @@ aside p {
 
 .text_ article p {
   font-size: 1.2em;
-  font-style: italic; }
+  font-style: normal;}
 
 article .icon {
   width: 20%;
@@ -133,10 +144,31 @@ article .icon {
 .register {
   background: #f7f7f7; }
 
+.register aside img{
+  width: 55%;
+  margin-left: 10%;
+}
+.register article img{
+  width: 100%;
+}
 .register aside span {
   height: 70vh;
   width: 70%; }
+.register aside p, .register aside h4{
+  margin-left: 16%;
+}
 
+.register article{
+  margin-right: 5%;
+  margin-left: 8%;
+  width: 35%;
+  float: right;
+}
+
+.register article p, .register article h4{
+  margin: 0;
+  padding: 0;
+}
 .calltoaction {
   width: 100%;
   height: 45vh; }
