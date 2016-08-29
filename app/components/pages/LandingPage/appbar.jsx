@@ -3,7 +3,7 @@ import styles from '../../../style.css';
 import { Link } from 'react-router';
 import Home from './Home.jsx';
 
-export default class App extends React.Component{
+class App extends React.Component{
 
   render() {
     return (
@@ -25,3 +25,9 @@ export default class App extends React.Component{
     ;
   }
 }
+
+App.propTypes = {
+  children: React.PropTypes.node
+};
+
+export default App;

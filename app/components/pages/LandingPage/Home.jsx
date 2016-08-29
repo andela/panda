@@ -1,5 +1,4 @@
 import React from 'react';
-import AppBar from './appbar.jsx';
 import Content from './content.jsx';
 import styles from '../../../style.css';
 import back from 'file!../../../images/back.jpg';
