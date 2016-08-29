@@ -19,4 +19,4 @@ render((
       <Route component={Contact} path='/contacts'/>
     </Route>
   </Router>
-), document.getElementById('id'));
+), document.getElementById('root'));
