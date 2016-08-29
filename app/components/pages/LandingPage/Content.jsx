@@ -13,7 +13,7 @@ const styleElement = {
   backgroundImage: 'url('+ rocks +')'
 };
 
-export default class MyComponent extends React.Component {
+export default class Content extends React.Component {
   render() {
     return (
       <div>
