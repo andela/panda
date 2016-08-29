@@ -8,10 +8,11 @@ const initialState = {
 	}
 };
 
-
 const store = function configureStore(initialState) {
 	return createStore (
 		rootReducer,
 		initialState
 		);
 };
+
+
