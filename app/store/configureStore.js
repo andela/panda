@@ -8,11 +8,9 @@ const initialState = {
 	}
 };
 
-const store = function configureStore(initialState) {
+export default function configureStore(initialState) {
 	return createStore (
 		rootReducer,
 		initialState
 		);
-};
-
-
+}
