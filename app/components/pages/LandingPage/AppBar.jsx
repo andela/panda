@@ -3,7 +3,7 @@ import styles from '../../../style.css';
 import { Link } from 'react-router';
 import Home from './Home.jsx';
 
-class App extends React.Component{
+class AppBar extends React.Component{
 
   render() {
     return (
@@ -21,8 +21,8 @@ class App extends React.Component{
 
         </nav>
         {this.props.children || <Home/>}
-      </div>)
-    ;
+      </div>
+    );
   }
 }
 
@@ -30,4 +30,4 @@ App.propTypes = {
   children: React.PropTypes.node
 };
 
-export default App;
+export default AppBar;

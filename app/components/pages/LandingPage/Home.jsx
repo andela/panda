@@ -8,7 +8,7 @@ const style = {
  backgroundImage: 'url(' + back + ')'
 };
 
-export default class MyComponent extends React.Component {
+export default class Home extends React.Component {
   render() {
     return (
       <div >
@@ -26,6 +26,7 @@ export default class MyComponent extends React.Component {
             <Content />
         </div>
 
-      </div>);
+      </div>
+    );
   }
 }
