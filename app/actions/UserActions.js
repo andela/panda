@@ -1,6 +1,7 @@
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from './../constants/actionTypes';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_REQUEST, LOGOUT_SUCCESS } from './../constants/actionTypes';
 import request from 'superagent';
 
+// logging in
 function logInRequest(creds) {
 	return {
 		type: LOGIN_REQUEST,
@@ -48,5 +49,30 @@ export function logInUser(creds) {
 					dispatch(receiveLogIn(user));
 				}
 			});
+	};
+}
+
+// logging out
+function requestLogOut() {
+	return {
+		type: LOGOUT_REQUEST,
+		isFetching: true,
+		isAuthenticated: true
+	};
+}
+
+function receiveLogOut() {
+	return {
+		type: LOGOUT_SUCCESS,
+		isFetching: false,
+		isAuthenticated: false
+	};
+}
+
+export function logOutUser() {
+	return dispatch => {
+		dispatch(requestLogOut());
+		localStorage.removeItem('id_token');
+		dispatch(receiveLogOut());
 	};
 }
