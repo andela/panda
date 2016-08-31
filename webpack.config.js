@@ -47,6 +47,7 @@ module.exports = {
       query: {
         'presets': ['react', 'es2015', 'stage-0', 'react-hmre']
       }
+
     }, {
       test: /\.json?$/,
       loader: 'json'

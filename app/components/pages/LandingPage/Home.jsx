@@ -1,5 +1,5 @@
 import React from 'react';
-import Content from './content.jsx';
+import Content from './Content.jsx';
 import styles from '../../../style.css';
 import back from 'file!../../../images/back.jpg';
 import laptop from 'file!../../../images/laptop.png';
