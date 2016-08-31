@@ -4,9 +4,9 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 
 import App from './components/pages/LandingPage/AppBar.jsx';
 import Home from './components/pages/LandingPage/Home.jsx';
-import About from './components/pages/About';
-import Services from './components/pages/Services';
-import Contact from './components/pages/Contact';
+import About from './components/pages/About.jsx';
+import Services from './components/pages/Services.jsx';
+import Contact from './components/pages/Contact.jsx';
 
 render((
   <Router history={browserHistory}>

@@ -24,7 +24,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      path.join(__dirname, 'app/main.js'),
+      // path.join(__dirname, 'app/main.js'),
       'test/client/**/*[sS]pec.js'
     ],
 
@@ -55,10 +55,7 @@ module.exports = function(config) {
         loaders: [{
           test: /\.jsx?$/,
           exclude: /node_modules/,
-          loader: 'babel',
-          query: {
-            'presets': ['react', 'es2015', 'stage-0', 'react-hmre']
-          }
+          loader: 'babel'
         }, {
           test: /\.json?$/,
           loader: 'json'
@@ -101,7 +98,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox'],
+    browsers: [ 'PhantomJS'],
 
 
     // Continuous Integration mode

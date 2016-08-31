@@ -26,7 +26,7 @@ class AppBar extends React.Component{
   }
 }
 
-App.propTypes = {
+AppBar.propTypes = {
   children: React.PropTypes.node
 };
 
