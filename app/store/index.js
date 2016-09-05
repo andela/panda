@@ -1,5 +1,5 @@
 import {createStore} from 'redux';
-import rootReducer from '../reducers/index.js';
+import rootReducer from '../reducers/index';
 
 const initialState = {
 	creds: {
