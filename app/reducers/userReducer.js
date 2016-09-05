@@ -1,4 +1,4 @@
-import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE } from './../constants/actionTypes';
+import {LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE, FIND_USER } from './../constants/actionTypes';
 
 const user = function auth(action, state = {
 	isFetching: false,
@@ -45,6 +45,12 @@ const user = function auth(action, state = {
 				isFetching: false,
 				isAuthenticated: false,
 				errorMessage: action.message
+			});
+
+		// finding a user
+		case FIND_USER:
+			return Object.assign({}, state, {
+				user: action.cred
 			});
 
 		default:

@@ -7,6 +7,7 @@ export const LOGOUT_SUCCESS = 'LOGOUT_SUCCESS';
 export const LOGOUT_FAILURE = 'LOGOUT_FAILURE';
 
 export const SIGNUP = 'SIGNUP';
+
+export const FIND_USER = 'FIND_USER';
 export const SESSION = 'SESSION';
-export const FIND = 'FIND';
 export const UPDATE = 'UPDATE';
