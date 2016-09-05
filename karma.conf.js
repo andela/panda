@@ -25,7 +25,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       path.join(__dirname, 'app/main.js'),
-      'test/client/**/*[sS]pec.js'
+      'tests/client/**/*[sS]pec.js'
     ],
 
     coverageReporter: {
