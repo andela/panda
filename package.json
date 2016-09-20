@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "test": "export NODE_ENV=Develop|| set NODE_ENV=Develop && karma start karma.conf.js ",
-    "postinstall": "./node_modules/protractor/bin/webdriver-manager update"
+    "postinstall": "webpack --config ./webpack-prod.config.js --progress --colors"
   },
   "dependencies": {
     "babel": "^6.5.2",
