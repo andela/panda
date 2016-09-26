@@ -1,8 +1,6 @@
-general:
-  branches:
-    ignore:
-      - feature/test-coverage
-      - ft-#126028027-CircleCI-Deployment-config
+machine:
+  node:
+    version: 6.2.1
 
 deployment:
   production:
