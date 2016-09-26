@@ -24,7 +24,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      path.join(__dirname, 'app/main.js'),
+      // path.join(__dirname, 'app/main.js'),
       'test/client/**/*[sS]pec.js'
     ],
 
@@ -45,15 +45,26 @@ module.exports = function(config) {
       'test/client/**/[sS]pec.js': ['webpack', 'sourcemap']
     },
 
-    webpack:   webpackConfig,
-            // karma watches the test entry points
-            // (you don't need to specify the entry option)
-            // webpack watches dependencies
+    webpack: {
+      // karma watches the test entry points
+      // (you don't need to specify the entry option)
+      // webpack watches dependencies
 
-            // webpack configuration
-
-
-
+      // webpack configuration
+      module: {
+        loaders: [{
+          test: /\.jsx?$/,
+          exclude: /node_modules/,
+          loader: 'babel'
+        }, {
+          test: /\.json?$/,
+          loader: 'json'
+        }, {
+          test: /\.css$/,
+          loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+        }]
+      }
+    },
 
     webpackMiddleware: {
             // webpack-dev-middleware configuration
@@ -87,7 +98,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Firefox'],
+    browsers: [ 'PhantomJS'],
 
 
     // Continuous Integration mode

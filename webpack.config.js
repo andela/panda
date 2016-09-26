@@ -1,6 +1,7 @@
 const path = require('path'); // webpack doesn't use relative file
 const webpack = require('webpack'); // import webpack
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // generates html page
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   /* maps to compiled source code per module so that
@@ -42,10 +43,8 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        'presets': ['react', 'es2015', 'stage-0', 'react-hmre']
-      }
+      loaders:[ 'babel'],
+      babelrc: true
     }, {
       test: /\.json?$/,
       loader: 'json'
