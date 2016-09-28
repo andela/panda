@@ -1,9 +1,7 @@
-const signupRoutes = require('./signup.js');
-const loginRoutes = require('./login.js');
+const browserRoutes = require('./browser');
 
-const router = (app) => {
-  app.use('/signup', signupRoutes);
-  app.use('/login', loginRoutes);
+module.exports = (router) => {
+  browserRoutes(router);
+
+  return router;
 };
-
-module.exports = router;

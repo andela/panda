@@ -14,10 +14,14 @@ const webpackMiddleware = require('webpack-dev-middleware');
 */
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
+// const routes = require('./server/routes');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const app = express();
+const routes = require('express').Router();
+
+app.use('/api', router(routes));
 
 if (isDeveloping) {
   const compiler = webpack(config);
@@ -49,7 +53,6 @@ if (isDeveloping) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }
-
 
 app.listen(port, function onStart(err) {
   if (err) {
