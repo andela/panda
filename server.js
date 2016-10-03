@@ -2,7 +2,11 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const routes = require('./server/routes');
+const router = require('./server/routes');
+
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
 
@@ -34,6 +38,8 @@ if (isDeveloping) {
       modules: false
     }
   });
+  app.use(cookieParser(process.env.SECRET)); // read cookieParser
+  app.use(bodyParser.json());
 
   app.use(middleware);
   app.use(webpackHotMiddleware(compiler));
@@ -41,6 +47,7 @@ if (isDeveloping) {
     res.write(middleware.fileSystem.readFileSync(path.join(__dirname, 'dist/index.html')));
     res.end();
   });
+  router(app);
 } else {
   // applies if running on production mode
   app.use(express.static(__dirname + '/dist'));
