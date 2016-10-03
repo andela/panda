@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
-  var Visitor = sequelize.define('Visitor', {
+  var visitor = sequelize.define('visitor', {
     ip_address: DataTypes.STRING,
     mac_address: DataTypes.STRING,
     id_site: DataTypes.INTEGER,
@@ -16,5 +16,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     }
   });
-  return Visitor;
+  return visitor;
 };
