@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-
+const routes = require('./server/routes/index');
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
 
@@ -15,6 +15,9 @@ const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const app = express();
+
+// ROUTES
+app.use('/api', routes);
 
 if (isDeveloping) {
   const compiler = webpack(config);
