@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes) {
     browser: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
+      associate: function(Models) {
         // associations can be defined here
       }
     }
