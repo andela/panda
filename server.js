@@ -2,10 +2,9 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const router = require('./server/routes');
+const routes = require('./server/routes');
 
 const bodyParser = require('body-parser');
-
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
 

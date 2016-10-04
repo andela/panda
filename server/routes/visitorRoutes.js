@@ -1,6 +1,7 @@
-const visitors = require('../controllers/visitors');
+// Controllers
+const visitors = require('../controller/visitors');
 
-// Define routes and map them to controllers
+// Define routes and mapping them to controllers
 module.exports = (router) => {
   router.route('/reports/visitors')
     .get(visitors.all);
