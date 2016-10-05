@@ -5,7 +5,10 @@ const webpack = require('webpack');
 const router = require('./server/routes');
 
 const bodyParser = require('body-parser');
+<<<<<<< HEAD
 const cookieParser = require('cookie-parser');
+=======
+>>>>>>> 16ca38bbf131f47ee2a0dbb85097e92a626e9312
 
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -34,7 +37,6 @@ if (isDeveloping) {
       modules: false
     }
   });
-  app.use(cookieParser(process.env.SECRET)); // read cookieParser
   app.use(bodyParser.json());
 
   app.use(middleware);
