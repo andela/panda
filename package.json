@@ -46,9 +46,10 @@
     "webdriver-manager": "^10.2.3",
     "style-loader": "^0.13.1",
     "superagent": "^2.2.0",
+
     "webpack": "1.13.1",
     "webpack-dev-server": "1.14.1",
-    "webpack-hot-middleware": "^2.11.0"
+    "webpack-hot-middleware": "^2.12.2"
   },
   "repository": {
     "type": "git",
@@ -92,9 +93,7 @@
     "karma-coverage": "^1.1.0",
     "karma-coveralls": "^1.1.2",
     "karma-firefox-launcher": "^1.0.0",
-    "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
-    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
     "method-override": "^2.3.6",
     "node-sass": "^3.8.0",
@@ -104,6 +103,7 @@
     "passport-local": "^1.0.0",
     "passport-oauth": "^1.0.0",
     "react-router": "^2.6.0",
+    "protractor": "^4.0.2",
     "react-hot-loader": "^3.0.0-beta.2",
     "react-transform-hmr": "^1.0.4",
     "sequelize-cli": "^2.4.0",

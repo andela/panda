@@ -17,7 +17,7 @@ const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000 ;
 const app = express();
 
 if (isDeveloping) {
@@ -51,7 +51,6 @@ if (isDeveloping) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
 }
-
 
 app.listen(port, function onStart(err) {
   if (err) {
