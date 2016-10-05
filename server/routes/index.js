@@ -1,10 +1,6 @@
-// Dependencies
-const router = require('express').Router();
+const visitors = require('./visitorRoutes');
 
-// routes
-const visitors = require('./visitors');
-
-// Routes
-router.use('/reports/visitors', visitors);
-
-module.exports = router;
+module.exports = (router) => {
+   visitors(router);
+   return router;
+};
