@@ -9,6 +9,7 @@ import Services from './components/pages/Services.jsx';
 import Contact from './components/pages/Contact.jsx';
 import SignUp from './components/pages/AuthPage/SignUp.jsx';
 import Login from './components/pages/AuthPage/login.jsx';
+import Reports from './components/pages/ReportsPage/Reports.jsx';
 
 render((
   <Router history={browserHistory}>
@@ -20,6 +21,7 @@ render((
     </Route>
     <Route path='/signup' component={SignUp} />
     <Route path='/login' component={Login} />
+    <Route path='/reports' component={Reports}/>
 
   </Router>
 ), document.getElementById('root'));
