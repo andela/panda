@@ -15,7 +15,7 @@ class AppBar extends React.Component{
           <li> <Link to="/about">About </Link></li>
           <li> <Link to="/services">Services</Link></li>
           <li> <Link to="/contacts">Contact Us</Link></li>
-          <li className={styles.signup}><a> Signup </a></li>
+          <li className={styles.signup}><Link to="/login"> Login</Link> </li>
 
         </ul>
 
