@@ -1,9 +1,10 @@
 import React from 'react';
 import moment from 'moment';
+import styles from '../../../reports.css';
+import { Line } from 'react-chartjs';
+import { Chart } from 'chartjs';
 
 require('moment-range');
-
-const LineChart = require('react-chartjs').Line;
 
 class Visits extends React.Component {
   render() {
@@ -15,11 +16,11 @@ class Visits extends React.Component {
       datas.push(moment.format('MMM Do YY'));
 });
     const chart = {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: datas,
         datasets: [{
-          label: '# of Votes',
+          label: 'Numner of Visits',
           data: [112, 89, 233, 50, 20, 13, 30],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
@@ -48,12 +49,16 @@ class Visits extends React.Component {
               beginAtZero: true
             }
           }]
+        },
+        title: {
+            display: true,
+            text: 'Custom Chart Title'
         }
       }
     };
     return (
-      <div>
-        <LineChart data={chart.data} options={chart.options} height='250' width='600' />
+      <div className={styles.graph}>
+        <Line data={chart.data} options={chart.options} height='250' width='600' redraw/>
       </div>
     );
   }

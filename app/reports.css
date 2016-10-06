@@ -1,0 +1,45 @@
+div > canvas {
+  style {
+    width: 800px;
+  }
+}
+body {
+  margin: 0 5%;
+  background-color: white;
+}
+ .comb {
+   display: flex;
+   flex-direction: row;
+
+   .session {
+     flex-grow: 1;
+     border-style: solid;
+
+   }
+   .map {
+     flex-grow: 1;
+     border-style: solid;
+
+   }
+}
+ .comb1 {
+   display: flex;
+   flex-direction: row;
+ }
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.metergroup {
+  display: flex;
+  flex-direction: row;
+
+  .browsers {
+    flex-grow: 1;
+
+  }
+  .devices {
+    flex-grow: 1;
+  }
+}

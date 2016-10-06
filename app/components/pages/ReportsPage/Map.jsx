@@ -1,24 +1,23 @@
 import React from 'react';
 import { Map, MarkerGroup } from 'react-d3-map';
+import styles from '../../../reports.css';
 
 class VisitsMap extends React.Component {
   render () {
-    const onPolygonMouseOver= function(component, d, i) {
-    component.showPopup();
-    }
+
     const onPolygonMouseOut= function(component, d, i) {
     component.hidePopup();
-    }
+  };
     const onPolygonClick= function(component, d, i) {
     component.showPopup();
-    }
+  };
     const onPolygonCloseClick= function(component, id) {
     component.hidePopup();
-    }
-    const width = 1000;
-    const height = 800;
+  };
+    const width = 400;
+    const height = 300;
     // set your zoom scale
-    const scale = 1 << 10;;
+    const scale = 1 << 10;
     // min and max of your zoom scale
     const scaleExtent = [1 << 10, 1 << 14];
     // set your center point
@@ -37,7 +36,7 @@ class VisitsMap extends React.Component {
     };
 
     return (
-      <div>
+      <div className={styles.map}>
         <Map
           width={width}
           height={height}
@@ -57,8 +56,7 @@ class VisitsMap extends React.Component {
           />
         </Map>
       </div>
-
-    )
+    );
   }
 }
 
