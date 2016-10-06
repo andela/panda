@@ -1,26 +1,59 @@
 import React from 'react';
 import moment from 'moment';
-
+import styles from '../../../reports.css';
+import { Line } from 'react-chartjs';
+import { Chart } from 'chartjs';
+import request from 'superagent';
+import groupBy from 'lodash.groupby';
 require('moment-range');
-
-const LineChart = require('react-chartjs').Line;
+require('chartjs');
 
 class Visits extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      data: []
+    };
+
+    this.setNewData = this.setNewData.bind(this);
+  }
+
+  componentDidMount () {
+    request('GET', '/api/reports/visitors')
+    .end((err, res) => {
+      if (err) {
+        res.send(err);
+      }
+      this.setNewData(res.body);
+    });
+  }
+
+  setNewData(newData) {
+    this.setState({
+      data: newData
+    });
+  }
+// visit.browser
   render() {
+    const period = [];
     const datas =[];
     const start = new Date(2012, 2, 1);
-    const end   = new Date(2012, 2, 5);
-    const range1 = moment.range(start, end);
-    range1.by('days', function(moment) {
+    const end   = new Date(2012, 2, 5) || start;
+    const periodRange = moment.range(start, end);
+    groupBy(this.state.data, (visit) => {
+      period.push(moment(visit.arrival_time).format('YYYY MM DD').length);
+    });
+    periodRange.by('days', function(moment) {
       datas.push(moment.format('MMM Do YY'));
 });
     const chart = {
-      type: 'bar',
+      type: 'line',
       data: {
         labels: datas,
         datasets: [{
-          label: '# of Votes',
-          data: [112, 89, 233, 50, 20, 13, 30],
+          label: 'Number of Visits',
+          data: period,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -48,12 +81,17 @@ class Visits extends React.Component {
               beginAtZero: true
             }
           }]
+        },
+        title: {
+            display: true,
+            text: 'Custom Chart Title'
         }
       }
     };
     return (
-      <div>
-        <LineChart data={chart.data} options={chart.options} height='250' width='600' />
+      <div className={styles.graph}>
+        <h3>Number of visits</h3>
+        <Line data={chart.data} options={chart.options} height='250' width='600' redraw/>
       </div>
     );
   }

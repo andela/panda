@@ -22,6 +22,5 @@ render((
     <Route path='/signup' component={SignUp} />
     <Route path='/login' component={Login} />
     <Route path='/reports' component={Reports}/>
-
   </Router>
 ), document.getElementById('root'));

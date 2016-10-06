@@ -17,7 +17,7 @@ const router = require('./server/routes');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const app = express();
-
+router(app);
 if (isDeveloping) {
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {

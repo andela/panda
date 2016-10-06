@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars*/
 import React from 'react';
-// import styles from '../../../style.css';
+import styles from '../../../reports.css';
 
 // create a component called App
 class Session extends React.Component {
@@ -41,11 +41,9 @@ class Session extends React.Component {
     }
   }
 
-
-
   render () {
     return (
-      <div>
+      <div className={styles.session}>
         <table>
           <thead>
             <td>IP Address</td>
@@ -73,5 +71,4 @@ class TableRow extends React.Component {
    }
 }
 
-// enables App.jsx to be imported
 export default Session;
