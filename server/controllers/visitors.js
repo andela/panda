@@ -1,4 +1,4 @@
-const { Visitor } = require('../models');
+const models = require('../models');
 
 module.exports = {
   all: (req, res) => {
@@ -18,10 +18,9 @@ module.exports = {
         departure_time: {lt: endDate}
       };
     }
-
-    Visitor
+    models.visitor
       .findAll({
-        where: query.where,
+        // where: query.where,
         attributes: ['ip_address', 'arrival_time', 'location', 'browser', 'device', 'departure_time'],
         limit: parseInt(req.query.limit, 10) || 10,
         offset: parseInt(req.query.offset, 10) || 0

@@ -1,6 +1,7 @@
-const visitors = require('./visitorRoutes');
+const visitorRoutes = require('./visitors');
 
-module.exports = (router) => {
-   visitors(router);
-   return router;
+const router = (app) => {
+  app.use('/api/reports/visitors', visitorRoutes);
 };
+
+module.exports = router;
