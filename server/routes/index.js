@@ -1,6 +1,6 @@
-const visitors = require('./visitorRoutes');
+const visitorRoutes = require('./visitors');
 
 module.exports = (router) => {
-   visitors(router);
+   visitorRoutes(router);
    return router;
 };
