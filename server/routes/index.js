@@ -1,11 +1,7 @@
-const browserRoutes = require('./browser');
-const loginRoutes = require('./login');
-const signupRoutes = require('./signup');
+const visitorRoutes = require('./visitors');
 
 const router = (app) => {
-  app.use('/api/signup', signupRoutes);
-  app.use('/api/login', loginRoutes);
-  app.use('/api/reports/browsers', browserRoutes);
+  app.use('/api/reports/visitors', visitorRoutes);
 };
 
 module.exports = router;
