@@ -19,11 +19,11 @@ export default class LoginComponents extends React.Component {
       password: e.target.password.value
     };
     request
-      .post('/login')
+      .post('/api/login')
       .send(auth)
       .end((err, response) => {
         console.log('status', response);
-  
+
       });
     }
 
