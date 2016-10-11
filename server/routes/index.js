@@ -1,9 +1,11 @@
-const signupRoutes = require('./signup.js');
-const loginRoutes = require('./login.js');
+const browserRoutes = require('./browser');
+const loginRoutes = require('./login');
+const signupRoutes = require('./signup');
 
 const router = (app) => {
-  app.use('/signup', signupRoutes);
-  app.use('/login', loginRoutes);
+  app.use('/api/signup', signupRoutes);
+  app.use('/api/login', loginRoutes);
+  app.use('/api/reports/browsers', browserRoutes);
 };
 
 module.exports = router;

@@ -14,6 +14,7 @@ const webpackMiddleware = require('webpack-dev-middleware');
 */
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
+// const routes = require('./server/routes');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
@@ -48,8 +49,8 @@ if (isDeveloping) {
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
+  router(app);
 }
-
 
 app.listen(port, function onStart(err) {
   if (err) {
