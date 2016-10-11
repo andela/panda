@@ -20,6 +20,9 @@ const authentication = {
         .then((response) => {
           let token = generateToken(response.email, response.id);
           return res.status(202).json(token);
+        })
+        .catch((err) => {
+          res.status(500).json(err);
         });
       }
       else {

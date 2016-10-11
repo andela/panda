@@ -1,6 +1,8 @@
+const express = require('express');
+const router = express.Router();
 const browser = require('../controllers/browser');
 
-module.exports = (router) => {
-  router.route('/reports/browsers')
-    .get(browser.all);
-};
+router.route('/')
+  .get(browser.all);
+
+module.exports = router;

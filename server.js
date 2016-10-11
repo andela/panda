@@ -19,9 +19,6 @@ const config = require('./webpack.config.js');
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const app = express();
-const routes = require('express').Router();
-
-app.use('/api', router(routes));
 
 if (isDeveloping) {
   const compiler = webpack(config);
@@ -52,6 +49,7 @@ if (isDeveloping) {
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
+  router(app);
 }
 
 app.listen(port, function onStart(err) {
