@@ -2,7 +2,7 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const router = require('./server/routes');
+
 const bodyParser = require('body-parser');
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
@@ -12,15 +12,11 @@ const webpackMiddleware = require('webpack-dev-middleware');
 */
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
-// const routes = require('./server/routes');
+const router = require('./server/routes');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000;
 const app = express();
-const routes = require('express').Router();
-
-// ROUTES
-app.use('/api', router(routes));
 
 if (isDeveloping) {
   const compiler = webpack(config);
