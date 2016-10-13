@@ -7,7 +7,6 @@ class VisitsMap extends React.Component {
     const onPolygonMouseOver= function(component, d, i) {
     component.showPopup();
   };
-
     const onPolygonMouseOut= function(component, d, i) {
     component.hidePopup();
   };

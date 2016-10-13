@@ -28,6 +28,7 @@ import Browsers from './Browsers.jsx';
 //     );
 //   }
 // }
+
 class Reports extends React.Component {
   render () {
     return (
@@ -35,8 +36,8 @@ class Reports extends React.Component {
         <Visits/>
         <Session/>
         <VisitsMap/>
-        <Devices/>
         <Browsers/>
+        <Devices/>
       </div>
     );
   }
