@@ -1,17 +1,48 @@
 import React from 'react';
+import request from 'superagent';
+import groupBy from 'lodash.groupby';
 import safari from 'file!../../../images/safari.jpeg';
 import chrome from 'file!../../../images/chrome.jpeg';
 import firefox from 'file!../../../images/firefox.jpeg';
 import styles from '../../../reports.css';
 
 class Browser extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      data: []
+    };
+
+    this.setNewData = this.setNewData.bind(this);
+  }
+
+  componentDidMount () {
+    request('GET', '/api/reports/visitors')
+    .end((err, res) => {
+      if (err) {
+        res.send(err);
+      }
+      this.setNewData(res.body);
+    });
+  }
+
+  setNewData(newData) {
+    this.setState({
+      data: newData
+    });
+  }
   render () {
-    var style = {
+    const style = {
       width:'300px',
       height:'30px',
       color: 'white',
       fontSize: 200
     };
+
+    groupBy(this.state.data, (visit) => {
+      return visit.browser;
+    });
     return (
       <div className={styles.browsers}>
         {this.props.data.map((browser, index) => {
