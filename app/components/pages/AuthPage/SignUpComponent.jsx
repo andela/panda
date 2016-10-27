@@ -3,7 +3,8 @@ import { RaisedButton, TextField } from 'material-ui';
 import styles from '../../../App.css';
 import request from 'superagent';
 
-export default class LoginComponents extends React.Component {
+
+export default class SignUpComponent extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -11,43 +12,46 @@ export default class LoginComponents extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  handleSubmit(e) {
+handleSubmit(e) {
     e.preventDefault();
-    const auth = {
+
+    const user={
+      name: e.target.name.value,
       email: e.target.email.value,
       password: e.target.password.value
     };
     request
-      .post('/api/login')
-      .send(auth)
+      .post('/api/signup')
+      .send(user)
       .end((err, response) => {
-        console.log('status', response);
-
+        console.log('THE RESPONSE IS: ', response);
       });
-    }
 
+}
   render() {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-            <br/>
+            <TextField
+                className={styles.textfield}
+                hintText="Full Name"
+                name="name"
+            /><br/>
             <TextField
                 className={styles.textfield}
                 hintText="Email"
                 name="email"
-                label htmlFor="Email"
             /><br />
-
             <TextField
                 className={styles.textfield}
                 hintText="Password"
+                type="password"
                 name="password"
-                  type="password"
             /><br/><br/>
             <RaisedButton type='submit'
-            label='LogIn' primary={true}
-            className={styles.formatButton}/>
+            label='SignUp' primary={true}
+            className={styles.formatButton}
+            />
             <br/><br/>
         </form>
       </div>

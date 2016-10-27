@@ -3,7 +3,7 @@
 
 // reference webpack
 const webpackConfig = require('./webpack.config.js');
-const path = require('path');
+// const path = require('path');
 webpackConfig.devtool = 'inline-source-map';
 
 
@@ -21,11 +21,16 @@ module.exports = function(config) {
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
     frameworks: ['jasmine'],
 
+    preprocessors: {
+      'app/**/*.js': ['webpack', 'coverage', 'babel'],
+      'spec/client/**/*[sS]pec.js': ['webpack', 'sourcemap', 'babel']
+    },
 
     // list of files / patterns to load in the browser
     files: [
-      // path.join(__dirname, 'app/main.js'),
-      'test/client/**/*[sS]pec.js'
+      // 'app/**/*.js',
+      'spec/client/**/*[sS]pec.js',
+      'node_modules/babel-polyfill/dist/polyfill.js'
     ],
 
     coverageReporter: {
@@ -35,15 +40,8 @@ module.exports = function(config) {
 
     // list of files to exclude
     exclude: [
+      'app/images/*'
     ],
-
-
-    // preprocess matching files before serving them to the browser
-    // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-      'app/main.js': ['webpack', 'coverage'],
-      'test/client/**/[sS]pec.js': ['webpack', 'sourcemap']
-    },
 
     webpack: {
       // karma watches the test entry points
