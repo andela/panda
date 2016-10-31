@@ -2,10 +2,8 @@
 const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
-const router = require('./server/routes');
 
 const bodyParser = require('body-parser');
-
 // It serves the files emitted from webpack over a connect server
 const webpackMiddleware = require('webpack-dev-middleware');
 
@@ -14,6 +12,7 @@ const webpackMiddleware = require('webpack-dev-middleware');
 */
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const config = require('./webpack.config.js');
+const router = require('./server/routes');
 
 const isDeveloping = process.env.NODE_ENV !== 'production';
 const port = process.env.PORT || 3000 ;
@@ -48,6 +47,7 @@ if (isDeveloping) {
   app.get('*', function response(req, res) {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
   });
+  router(app);
 }
 
 app.listen(port, function onStart(err) {

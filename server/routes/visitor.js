@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const authentication = require('../controllers/authenticate');
+const visitor = require('../controllers/visitors');
 
 router.route('/')
-  .post(authentication.login);
+  .get(visitor.all);
 
 module.exports = router;

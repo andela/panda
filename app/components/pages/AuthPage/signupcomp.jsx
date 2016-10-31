@@ -21,7 +21,7 @@ handleSubmit(e) {
       password: e.target.password.value
     };
     request
-      .post('/signup')
+      .post('/api/signup')
       .send(user)
       .end((err, response) => {
         console.log('THE RESPONSE IS: ', response);

@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('Visitors', [{
+    return queryInterface.bulkInsert('visitors', [{
       ip_address: '105.21.32.63',
       mac_address: '7546ed87lo9ukcx',
       id_site: 1,
