@@ -1,6 +1,4 @@
 const models = require('../models');
-// const jquery = require('jquery');
-const request = require('superagent');
 
 module.exports = {
   all: (req, res) => {
@@ -33,13 +31,11 @@ module.exports = {
     create: (req, res) => {
       let details = JSON.parse(req.params.attributes);
       const ip_address = details.ip_address;
-      console.log(ip_address);
       let location;
       // use jquery to request for location using attained ip_address
       require('jsdom').env('', function(err, window) {
           if (err) {
-              console.error(err);
-              return;
+              return err;
           }
           var $ = require('jquery')(window);
 
@@ -48,7 +44,6 @@ module.exports = {
         type: 'POST',
         dataType: 'jsonp',
         success: function(response) {
-          console.log('The response is: ', response);
           location = response.country_name;
         }
       });

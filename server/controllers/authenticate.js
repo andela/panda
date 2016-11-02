@@ -32,7 +32,6 @@ const authentication = {
   });
   },
   login: (req, res, next) => {
-    console.log('Request consists of: ', req.headers);
     passport.authenticate('local', function(err, user, info) {
       if (err) {
         return next(err);
