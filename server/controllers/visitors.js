@@ -1,4 +1,6 @@
 const models = require('../models');
+// const jquery = require('jquery');
+const request = require('superagent');
 
 module.exports = {
   all: (req, res) => {
@@ -27,5 +29,42 @@ module.exports = {
       }).then((visitors) => {
         res.json(visitors);
       });
+    },
+    create: (req, res) => {
+      let details = JSON.parse(req.params.attributes);
+      const ip_address = details.ip_address;
+      console.log(ip_address);
+      let location;
+      // use jquery to request for location using attained ip_address
+      require('jsdom').env('', function(err, window) {
+          if (err) {
+              console.error(err);
+              return;
+          }
+          var $ = require('jquery')(window);
+
+      $.ajax( {
+        url: `http://freegeoip.net/json/${ip_address}`,
+        type: 'POST',
+        dataType: 'jsonp',
+        success: function(response) {
+          console.log('The response is: ', response);
+          location = response.country_name;
+        }
+      });
+      });
+
+      models.visitor.build({
+        id_site: details.site,
+        ip_address: details.ip_address,
+        arrival_time: details.arrival_time,
+        browser: details.browser,
+        location: location
+      })
+      .save()
+      .catch((err) => {
+        res.status(500).json(err);
+      });
     }
+
 };
