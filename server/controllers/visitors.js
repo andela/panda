@@ -28,38 +28,38 @@ module.exports = {
         res.json(visitors);
       });
     },
-    create: (req, res) => {
-      let details = JSON.parse(req.params.attributes);
-      const ip_address = details.ip_address;
-      let location;
-      // use jquery to request for location using attained ip_address
-      require('jsdom').env('', function(err, window) {
-          if (err) {
-              return err;
-          }
-          var $ = require('jquery')(window);
-
-      $.ajax( {
-        url: `http://freegeoip.net/json/${ip_address}`,
-        type: 'POST',
-        dataType: 'jsonp',
-        success: function(response) {
-          location = response.country_name;
+  create: (req, res) => {
+    let details = JSON.parse(req.params.attributes);
+    const ip_address = details.ip_address;
+    let location;
+    // use jquery to request for location using attained ip_address
+    require('jsdom').env('', function(err, window) {
+        if (err) {
+            return err;
         }
-      });
-      });
+        var $ = require('jquery')(window);
 
-      models.visitor.build({
-        id_site: details.site,
-        ip_address: details.ip_address,
-        arrival_time: details.arrival_time,
-        browser: details.browser,
-        location: location
-      })
-      .save()
-      .catch((err) => {
-        res.status(500).json(err);
-      });
-    }
+    $.ajax( {
+      url: `http://freegeoip.net/json/${ip_address}`,
+      type: 'POST',
+      dataType: 'jsonp',
+      success: function(response) {
+        location = response.country_name;
+      }
+    });
+    });
+
+    models.visitor.build({
+      id_site: details.site,
+      ip_address: details.ip_address,
+      arrival_time: details.arrival_time,
+      browser: details.browser,
+      location: location
+    })
+    .save()
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+  }
 
 };

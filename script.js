@@ -8,15 +8,18 @@ window.onunload = function() {
 	xhttp.open('GET',`http://0.0.0.0:3000/reports/visitors/${departure_time}`, true);
 };
 
-
-var findIP = new Promise(r => {
-  var w=window,a=new (w.RTCPeerConnection||w.mozRTCPeerConnection||w.webkitRTCPeerConnection)({iceServers:[]}),
-  b=()=>{};
-  a.createDataChannel('');
-  a.createOffer(c=>a.setLocalDescription(c,b,b),b);
-  a.onicecandidate=c=>{
+const findIP = new Promise(r => {
+  const reg = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+  let newWindow=window,
+  userBrowser=new (newWindow.RTCPeerConnection||newWindow.mozRTCPeerConnection||
+                  newWindow.webkitRTCPeerConnection)({iceServers:[]}),
+  callback=()=>{};
+  userBrowser.createDataChannel('');
+  userBrowser.createOffer(
+    event=>userBrowser.setLocalDescription(event,callback,callback),callback);
+  userBrowser.onicecandidate=event=>{
     try{
-      c.candidate.candidate.match(/([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g).forEach(r);
+      event.candidate.candidate.match(reg).forEach(r);
     }catch(e){
       return e;
     }
