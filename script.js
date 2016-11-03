@@ -31,6 +31,7 @@ const findIP = new Promise(r => {
 	let attributes = JSON.stringify({
 		'browser': navigator.appCodeName,
 		'arrival_time': Date(),
+    'site': 'clientsiteid',
 		ip_address
 	});
 
