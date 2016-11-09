@@ -88,6 +88,27 @@ describe('Authentication actions', () => {
           body: credentials
         }));
 
+      const actions = [{
+        type: actionTypes.LOGIN_REQUEST,
+        credentials
+      }, {
+        type: actionTypes.LOGIN_SUCCESS,
+        user: credentials
+      }];
+
+      const store = mockStore({});
+      return store.dispatch(actionCreators.loginUser(credentials))
+        .then(() => {
+          expect(store.getActions()).toEqual(actions);
+        });
+    });
+
+    it('logs in a user', () => {
+        mock
+          .post('/api/login', () => ({
+            body: credentials
+          }));
+
         const actions = [{
           type: actionTypes.LOGIN_REQUEST,
           credentials
@@ -97,30 +118,10 @@ describe('Authentication actions', () => {
         }];
 
         const store = mockStore({});
-        return store.dispatch(actionCreators.loginUser(credentials)).then(() => {
+        return store.dispatch(actionCreators.loginUser(credentials))
+          .then(() => {
             expect(store.getActions()).toEqual(actions);
           });
-    });
-
-    it('logs in a user', () => {
-        mock
-          .post('/api/login', () => ({
-            body: credentials
-          }));
-
-          const actions = [{
-            type: actionTypes.LOGIN_REQUEST,
-            credentials
-          }, {
-            type: actionTypes.LOGIN_SUCCESS,
-            user: credentials
-          }];
-
-          const store = mockStore({});
-          return store.dispatch(actionCreators.loginUser(credentials))
-            .then(() => {
-              expect(store.getActions()).toEqual(actions);
-            });
       });
 
     it('mocks failed login', () => {
@@ -132,20 +133,20 @@ describe('Authentication actions', () => {
           }
         }));
 
-        const actions = [{
-          type: actionTypes.LOGIN_REQUEST,
-          credentials
-        }, {
-          type: actionTypes.LOGIN_FAILURE,
-          error
-        }];
+      const actions = [{
+        type: actionTypes.LOGIN_REQUEST,
+        credentials
+      }, {
+        type: actionTypes.LOGIN_FAILURE,
+        error
+      }];
 
-        const store = mockStore();
+      const store = mockStore();
 
-        return store.dispatch(actionCreators.loginUser(credentials))
-          .then(() => {
-            expect(store.getActions()).toEqual(actions);
-          });
+      return store.dispatch(actionCreators.loginUser(credentials))
+        .then(() => {
+          expect(store.getActions()).toEqual(actions);
+        });
     });
 
     it('signs up a user', () => {
@@ -160,19 +161,19 @@ describe('Authentication actions', () => {
           body: details
         }));
 
-        const actions = [{
-          type: actionTypes.SIGNUP_REQUEST,
-          credentials
-        }, {
-          type: actionTypes.SIGNUP_SUCCESS,
-          user: details.text
-        }];
+      const actions = [{
+        type: actionTypes.SIGNUP_REQUEST,
+        credentials
+      }, {
+        type: actionTypes.SIGNUP_SUCCESS,
+        user: details.text
+      }];
 
-        const store = mockStore();
-        return store.dispatch(actionCreators.signupUser(credentials))
-          .then(() => {
-            expect(store.getActions()).toEqual(actions);
-          });
+      const store = mockStore();
+      return store.dispatch(actionCreators.signupUser(credentials))
+        .then(() => {
+          expect(store.getActions()).toEqual(actions);
+        });
     });
 
     it('mocks failed signup', () => {
@@ -182,19 +183,19 @@ describe('Authentication actions', () => {
           body: error
         }));
 
-        const actions = [{
-          type: actionTypes.SIGNUP_REQUEST,
-          credentials
-        }, {
-          type: actionTypes.SIGNUP_FAILURE,
-          error
-        }];
+      const actions = [{
+        type: actionTypes.SIGNUP_REQUEST,
+        credentials
+      }, {
+        type: actionTypes.SIGNUP_FAILURE,
+        error
+      }];
 
-        const store = mockStore();
-        return store.dispatch(actionCreators.signupUser(credentials))
-          .then(() => {
-            expect(store.getActions()).toEqual(actions);
-          });
+      const store = mockStore();
+      return store.dispatch(actionCreators.signupUser(credentials))
+        .then(() => {
+          expect(store.getActions()).toEqual(actions);
+        });
     });
 
   });
