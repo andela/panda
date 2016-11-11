@@ -2,8 +2,8 @@ import React from 'react';
 import { Tabs, Tab } from 'material-ui';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import styles from '../../../App.css';
-import ThirdParty from './thirdparty.jsx';
-import SignupComponents from './signupcomp.jsx';
+import ThirdParty from './ThirdParty.jsx';
+import SignUpComponent from './SignUpComponent.jsx';
 import Add from 'material-ui/svg-icons/social/group-add';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
@@ -30,7 +30,7 @@ export default class SignUp extends React.Component {
                     <MuiThemeProvider muiTheme={getMuiTheme(pandaTheme)}>
                         <Tabs>
                             <Tab icon={<Add/>} label="Sign Up" value='panel-2'>
-                                <SignupComponents />
+                                <SignUpComponent />
                                 <h2> OR </h2>
                                 <ThirdParty />
                             </Tab>
